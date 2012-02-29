@@ -31,6 +31,7 @@ app.configure('production', function(){
 
 // Fake user database
 var users = [
+  { name : "Mitchell Hislop", handle : "@mitchellhislop"},
   { name : "Nicholas Kreidberg", handle : "@niczak"},
   { name : "Philip Carlson", handle : "@philipc"}
 ];
