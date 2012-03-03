@@ -1,7 +1,14 @@
+/*
+  Nicholas Kreidberg
+  Sample application w/ multiple routes and partials using 
+  Node.js, Express and Jade.
 
-/**
- * Module dependencies.
- */
+  Written: 02/27/2012
+  Revised: 03/02/2012
+*/
+
+
+// Module dependencies.
 
 var express = require('express')
   , routes = require('./routes');
@@ -36,6 +43,12 @@ var users = [
   { name : "Philip Carlson", handle : "@philipc"}
 ];
 
+var me = 
+  { name :   "Nicholas Kreidberg", 
+    handle : "@niczak",
+    web:     "http://nicholaskreidberg.com",
+    email :  "niczak@gmail.com"
+  };
 
 // Routes
 app.get('/', routes.index);
@@ -48,6 +61,12 @@ app.get('/users', function(req, res){
 app.get('/links', function(req, res){
   res.render('links', { title : "Node Resources" });
 });
+
+app.get('/me', function(req, res) {
+  res.render('me', {title : "About Me", me : me});
+});
+
+
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
